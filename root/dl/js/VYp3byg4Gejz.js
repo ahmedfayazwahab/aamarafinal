@@ -1,0 +1,3 @@
+try{
+jQuery(document).ready(function(){var tabContainer=jQuery('.fsn-tabs-container');tabContainer.each(function(){var tabNav=jQuery(this).find('.nav-tabs');var tabLists=tabNav.find('li');tabLists.on('click',function(){var activeTab=jQuery(this);if(activeTab.hasClass('active')){activeTab.toggleClass('open-tab');tabLists.not(activeTab).toggleClass('expanded')}else{tabLists.removeClass('expanded');tabLists.removeClass('open-tab')}})})})
+}catch(e){console.error("An error has occurred. [ File: https://www.scaramoucherestaurant.com/wp-content/plugins/fusion-feature-tabs-mobile/includes/js/fusion-feature-tabs-mobile.js?ver=1.0.0 ] [ "+e.stack+" ]");}
