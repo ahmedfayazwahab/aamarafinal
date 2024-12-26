@@ -1,2 +1,0 @@
-function ADByline(){var bylineElement=document.getElementById('ad-byline');var span=document.createElement("span");span.className='ad-byline';span.textContent="Website by ";var strong=document.createElement('strong');var link=document.createElement('a');link.setAttribute('href','https://www.agencydominion.com');link.setAttribute('target','_blank');link.setAttribute('rel','noopener');var linkContent=document.createTextNode('Agency Dominion');link.appendChild(linkContent);strong.appendChild(link);span.appendChild(strong);bylineElement.appendChild(span);}
-ADByline();
