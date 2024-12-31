@@ -793,7 +793,26 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 	})();
 	
 	</script>
-	<script type="text/javascript">
+	<script>
+		// Select all anchor tags linking to index.html
+		document.querySelectorAll('a[href="index.html"]').forEach(function(anchor) {
+		  anchor.addEventListener('click', function(event) {
+			var targetUrl = this.href;  // Get the href value (index.html)
+	  
+			// Prevent the default behavior of the link
+			event.preventDefault();
+	  
+			// Navigate to the index.html page
+			window.location.href = targetUrl;
+	  
+			// Force a page refresh after a short delay
+			setTimeout(function() {
+			  window.location.reload();
+			}, 100);  // Wait for 100ms before refreshing the page
+		  });
+		});
+	  </script>
+	  <script type="text/javascript">
 		window.addEventListener('load', function() {
 		  // Check if the current page is index.html
 		  if (window.location.pathname === '/index.html' || window.location.href.endsWith('index.html')) {
