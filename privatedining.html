@@ -839,35 +839,19 @@ $("#myform")[0].reset();
 	})();
 	
 	</script>
-	<script>
-		// Select all anchor tags pointing to index.html
-		document.querySelectorAll('a[href="index.html"]').forEach(function(anchor) {
-		  anchor.addEventListener('click', function(event) {
-			var targetUrl = this.href;  // Get the href value (index.html)
-			
-			// Prevent the default behavior of the link
-			event.preventDefault();
-	  
-			// Navigate to the index.html page
-			window.location.href = targetUrl;
-	  
-			// Force a page refresh after a short delay
-			setTimeout(function() {
-			  window.location.reload();
-			}, 100);  // Wait for 100ms before refreshing the page
-		  });
-		});
-	  
-		// Check if the current page is index.html and refresh on back navigation
+	<script type="text/javascript">
 		window.addEventListener('load', function() {
-		  // This will only trigger if we are on index.html
+		  // Check if the current page is index.html
 		  if (window.location.pathname === '/index.html' || window.location.href.endsWith('index.html')) {
-			// Force reload if we are on index.html (even on back navigation)
-			if (!localStorage.getItem('firstLoad')) {
-			  // If first load hasn't been handled by localStorage, force reload
+			// Check if it's a back navigation or reload scenario
+			if (!sessionStorage.getItem('firstVisit')) {
+			  sessionStorage.setItem('firstVisit', 'true');  // Mark as visited
+			} else {
+			  // Force reload if already visited
 			  window.location.reload();
 			}
 		  }
 		});
 	  </script>
+	  
 </body></html>
