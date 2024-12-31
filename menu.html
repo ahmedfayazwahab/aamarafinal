@@ -23,7 +23,10 @@
 
 <link rel="alternate" type="application/rss+xml" title="Aamara - Flavours Redefined" href="https://aamara.ca"><link rel="pingback" href="https://aamaraa.ca">
 
-<meta name="viewport" content="width=device-width, user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script async="" src="mxwTV8QvZ1B9.net/en_US/ESU4447ehY3e.js"></script><script type="text/javascript">
 if( navigator.userAgent.match(/iPad/i) != null ){
@@ -800,4 +803,20 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 		  window.location.href = targetUrl;  // This will force the page to reload
 		});
 	  </script>
+	  <script type="text/javascript">
+		document.querySelectorAll('a').forEach(function(anchor) {
+			// Use both click and touchend to support both desktop and mobile
+			['click', 'touchend'].forEach(function(eventType) {
+			  anchor.addEventListener(eventType, function(event) {
+				var targetUrl = this.href;
+				
+				// If the target is the same as the current URL, force a reload
+				if (window.location.href === targetUrl) {
+				  event.preventDefault();  // Prevent default navigation
+				  window.location.reload(); // Reload the page
+				}
+			  });
+			});
+		  });
+		</script>
 </body></html>
