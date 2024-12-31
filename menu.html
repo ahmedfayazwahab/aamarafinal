@@ -767,21 +767,25 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 		lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 	});
 </script>
-<script type='text/javascript'>
-
-	(function()
-	{
-	  if( window.localStorage )
-	  {
-		if( !localStorage.getItem('firstLoad') )
-		{
-		  localStorage['firstLoad'] = true;
-		  window.location.reload();
-		}  
-		else
+<script type="text/javascript">
+	(function() {
+	  // Ensure the script only runs when `localStorage` is available
+	  if (window.localStorage) {
+		// Check if we're on the home page (either / or index.html)
+		var isHomePage = (window.location.pathname === '/' || window.location.pathname === '/index.html');
+  
+		if (isHomePage) {
+		  // If it's the first load, trigger a page reload
+		  if (!localStorage.getItem('firstLoad')) {
+			localStorage.setItem('firstLoad', true);
+			window.location.reload();  // Reload the page if it's the first load on Home
+		  }
+		} else {
+		  // If it's not the home page, clear 'firstLoad' from localStorage
 		  localStorage.removeItem('firstLoad');
+		}
 	  }
 	})();
-	
-	</script>
+  </script>
+  
 </body></html>
