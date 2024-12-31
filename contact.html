@@ -831,18 +831,19 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 	});
   </script>
   <script type="text/javascript">
-	window.addEventListener('load', function() {
-	  // Check if the current page is index.html
-	  if (window.location.pathname === '/index.html' || window.location.href.endsWith('index.html')) {
-		// Check if it's a back navigation or reload scenario
-		if (!sessionStorage.getItem('firstVisit')) {
-		  sessionStorage.setItem('firstVisit', 'true');  // Mark as visited
-		} else {
-		  // Force reload if already visited
-		  window.location.reload();
-		}
-	  }
-	});
-  </script>
+	window.addEventListener('popstate', function(event) {
+  // Check if we're on index.html and we came back
+  if (window.location.pathname === '/index.html' && sessionStorage.getItem('visitedBefore')) {
+    window.location.reload();  // Reload if navigating back
+  }
+});
+
+window.addEventListener('load', function() {
+  if (window.location.pathname === '/index.html' && !sessionStorage.getItem('visitedBefore')) {
+    sessionStorage.setItem('visitedBefore', 'true');  // Mark as visited
+  }
+});
+
+</script>
   
 </body></html>
