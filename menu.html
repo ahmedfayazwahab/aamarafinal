@@ -793,24 +793,20 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 	})();
 	
 	</script>
-	<script>
-		// Attach the event listener to all anchor tags
+	<script type="text/javascript">
 		document.querySelectorAll('a').forEach(function(anchor) {
-		  anchor.addEventListener('click', function(event) {
-			// Store the href value of the clicked anchor tag
-			var targetUrl = this.href;
-	  
-			// Prevent the default link navigation
-			event.preventDefault();
-	  
-			// Navigate to the target URL
-			window.location.href = targetUrl;
-	  
-			// Force a page refresh after the navigation (via the location.reload method)
-			setTimeout(function() {
-			  window.location.reload();
-			}, 100); // Add a slight delay before the reload to ensure the page loads first
+			// Use both click and touchend to support both desktop and mobile
+			['click', 'touchend'].forEach(function(eventType) {
+			  anchor.addEventListener(eventType, function(event) {
+				var targetUrl = this.href;
+				
+				// If the target is the same as the current URL, force a reload
+				if (window.location.href === targetUrl || window.location.href === "index.html") {
+				  event.preventDefault();  // Prevent default navigation
+				  window.location.reload(); // Reload the page
+				}
+			  });
+			});
 		  });
-		});
-	  </script>
+		</script>
 </body></html>
