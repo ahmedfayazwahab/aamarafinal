@@ -222,7 +222,7 @@ var wpgmza_google_api_status = {"message":"Enqueued","code":"ENQUEUED"};
 			
 			<div class="menu-wrap">
 				<div class="menu-item open-reservations"><h4>Reservations<a href="https://reserve.aamara.ca"></h4></div>							
-							<div class="menu-item"><h4><a style="text-decoration: none;" href="http://44.204.62.227" >Home</a></h4></div>
+							<div class="menu-item"><h4><a style="text-decoration: none;" class="home-link" href="http://44.204.62.227/index.html" >Home</a></h4></div>
 									
 							<div class="menu-item"><h4><a style="text-decoration: none;" href="http://44.204.62.227/menu.html" >Menus</a></h4></div>
 									
@@ -296,7 +296,7 @@ var wpgmza_google_api_status = {"message":"Enqueued","code":"ENQUEUED"};
 	<div class="menu-wrap">
 		<div class="menu-item open-reservations"><h3 style="font-style: italic; font-family: 'DomaineSansDisplay-Light';">Reservations</h3></div>
 
-								<div class="menu-item"><h3 style="font-style: italic; font-family: 'DomaineSansDisplay-Light';"><a href="http://44.204.62.227" >Home</a></h3></div>
+								<div class="menu-item"><h3 style="font-style: italic; font-family: 'DomaineSansDisplay-Light';"><a class="home-link" href="http://44.204.62.227/index.html" >Home</a></h3></div>
 								<div class="menu-item"><h3 style="font-style: italic; font-family: 'DomaineSansDisplay-Light';"><a href="http://44.204.62.227/menu.html" >Menus</a></h3></div>
 											
 								<div class="menu-item"><h3 style="font-style: italic; font-family: 'DomaineSansDisplay-Light';"><a href="http://44.204.62.227/privatedining.html" >Private Dining &amp; Events</a></h3></div>
@@ -635,7 +635,7 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 <div class="fl-module fl-module-rich-text fl-node-668ac664f27d6" data-node="668ac664f27d6">
 	<div class="fl-module-content fl-node-content">
 		<div class="fl-rich-text">
-<p><a href="http://44.204.62.227/index.html" >News</a></p>
+<p><a class="home-link" href="http://44.204.62.227/index.html" >News</a></p>
 </div>
 	</div>
 </div>
@@ -784,4 +784,14 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 	})();
 	
 	</script>
+	<script type="text/javascript">
+		document.querySelector('.home-link').addEventListener('click', function(event) {
+		  event.preventDefault();  // Prevent default link behavior
+		  
+		  var targetUrl = this.href;  // Get the href value
+	  
+		  // Force reload of the page
+		  window.location.href = targetUrl;  // This will force the page to reload
+		});
+	  </script>
 </body></html>
