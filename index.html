@@ -358,7 +358,7 @@ var wpgmza_google_api_status = {"message":"Enqueued","code":"ENQUEUED"};
 	<div class="menu-wrap">
 		<div class="menu-item"><h4 style="font-style: italic; text-decoration: aliceblue; font-family: 'DomaineSansDisplay-Light';font-size: 24px;"><a style="color: black;text-decoration: aliceblue;" href="https://reserve.aamara.ca">Reservations</a></h4></div>
 
-								<div class="menu-item"><h4><a style="font-style: italic; font-family: 'DomaineSansDisplay-Light';font-size: 24px;" href="http://44.204.62.227" >Home</a></h2></div>
+								<div class="menu-item"><h4><a class="home-link" style="font-style: italic; font-family: 'DomaineSansDisplay-Light';font-size: 24px;" href="http://44.204.62.227" >Home</a></h2></div>
 								<div class="menu-item"><h4><a style="font-style: italic; font-family: 'DomaineSansDisplay-Light';font-size: 24px;" href="http://44.204.62.227/menu.html" >Menus</a></h4></div>
 											
 								<div class="menu-item"><h4><a style="font-style: italic; font-family: 'DomaineSansDisplay-Light';font-size: 24px;" href="http://44.204.62.227/privatedining.html" >Private Dining &amp; Events</a></h4></div>
@@ -1349,24 +1349,16 @@ const userInteractionEvents=["mouseover","keydown","touchstart","touchmove","whe
     });
   </script>
 
-<script type='text/javascript'>
-
-	(function()
-	{
-	  if( window.localStorage )
-	  {
-		if( !localStorage.getItem('firstLoad') )
-		{
-		  localStorage['firstLoad'] = true;
-		  window.location.reload();
-		}  
-		else
-		  localStorage.removeItem('firstLoad');
-	  }
-	})();
-	
-	</script>
+<script type="text/javascript">
+	document.querySelector('.home-link').addEventListener('click', function(event) {
+	  event.preventDefault();  // Prevent default link behavior
+	  
+	  var targetUrl = this.href;  // Get the href value
   
+	  // Force reload of the page
+	  window.location.href = targetUrl;  // This will force the page to reload
+	});
+  </script>
 
 
 </body></html>
