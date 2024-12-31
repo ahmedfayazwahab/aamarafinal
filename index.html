@@ -11,7 +11,11 @@
 <link rel="manifest" href="">
 <link rel="shortcut icon" type="image/png" href="images/icon.png"/>
 <!--End Favicons-->
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="Aamara - Flavours Redefined">
 <meta name="copyright" content="Aamara - Flavours Redefined">
 <meta name="description" content="Aamara - Flavours Redefined">
@@ -25,7 +29,7 @@
 
 <link rel="alternate" type="application/rss+xml" title="Aamara - Flavours Redefined" href="https://aamara.ca"><link rel="pingback" href="https://aamaraa.ca">
 
-<meta name="viewport" content="width=device-width, user-scalable=no">
+<!-- <meta name="viewport" content="width=device-width, user-scalable=no"> -->
 
 <script async="" src="mxwTV8QvZ1B9.net/en_US/ESU4447ehY3e.js"></script><script type="text/javascript">
 if( navigator.userAgent.match(/iPad/i) != null ){
@@ -557,6 +561,8 @@ If your preferred time is not available please get in touch<br>
 				<div class="elementor-element elementor-element-7381eeb elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="7381eeb" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container" style="font-family: 'DomaineSansText-Light';">
 							 “The restaurant's swanky interiors are only matched by their menu that pays homage to the diverse mozaic of flavours and dishes...”					</div>
+							 <br>
+							 <div style="text-decoration: underline;"><a href="blogs.html">See More Blogs</a></div>
 				</div>
 				<div> <p style="font-family: 'DomaineSansText-Light'; display: none;" >See More Blogs</p> </div>
 				<div class="elementor-element elementor-element-4b12238 elementor-widget elementor-widget-heading" data-id="4b12238" data-element_type="widget" data-widget_type="heading.default">
@@ -1363,6 +1369,20 @@ const userInteractionEvents=["mouseover","keydown","touchstart","touchmove","whe
 	  window.location.href = targetUrl;  // This will force the page to reload
 	});
   </script>
-
-
+<script type="text/javascript">
+document.querySelectorAll('a').forEach(function(anchor) {
+	// Use both click and touchend to support both desktop and mobile
+	['click', 'touchend'].forEach(function(eventType) {
+	  anchor.addEventListener(eventType, function(event) {
+		var targetUrl = this.href;
+		
+		// If the target is the same as the current URL, force a reload
+		if (window.location.href === targetUrl) {
+		  event.preventDefault();  // Prevent default navigation
+		  window.location.reload(); // Reload the page
+		}
+	  });
+	});
+  });
+</script>
 </body></html>
