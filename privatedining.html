@@ -839,19 +839,24 @@ $("#myform")[0].reset();
 	})();
 	
 	</script>
-	<script type="text/javascript">
+	<script>
+		// Attach the event listener to all anchor tags
 		document.querySelectorAll('a').forEach(function(anchor) {
-			// Use both click and touchend to support both desktop and mobile
-			['click', 'touchend'].forEach(function(eventType) {
-			  anchor.addEventListener(eventType, function(event) {
-				var targetUrl = this.href;
-				
-				// If the target is the same as the current URL, force a reload
-				  event.preventDefault();  // Prevent default navigation
-				  window.location.reload(); // Reload the page
-				
-			  });
-			});
+		  anchor.addEventListener('click', function(event) {
+			// Store the href value of the clicked anchor tag
+			var targetUrl = this.href;
+	  
+			// Prevent the default link navigation
+			event.preventDefault();
+	  
+			// Navigate to the target URL
+			window.location.href = targetUrl;
+	  
+			// Force a page refresh after the navigation (via the location.reload method)
+			setTimeout(function() {
+			  window.location.reload();
+			}, 100); // Add a slight delay before the reload to ensure the page loads first
 		  });
-		</script>
+		});
+	  </script>
 </body></html>
