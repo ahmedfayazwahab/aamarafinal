@@ -1379,10 +1379,9 @@ document.querySelectorAll('a').forEach(function(anchor) {
 		var targetUrl = this.href;
 		
 		// If the target is the same as the current URL, force a reload
-		if (window.location.href === targetUrl) {
 		  event.preventDefault();  // Prevent default navigation
 		  window.location.reload(); // Reload the page
-		}
+		
 	  });
 	});
   });
