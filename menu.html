@@ -776,18 +776,24 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 		lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 	});
 </script>
+<script type='text/javascript'>
 
+	(function()
+	{
+	  if( window.localStorage )
+	  {
+		if( !localStorage.getItem('firstLoad') )
+		{
+		  localStorage['firstLoad'] = true;
+		  window.location.reload();
+		}  
+		else
+		  localStorage.removeItem('firstLoad');
+	  }
+	})();
+	
+	</script>
 	<script type="text/javascript">
-		document.querySelector('.home-link').addEventListener('click', function(event) {
-		  event.preventDefault();  // Prevent default link behavior
-		  
-		  var targetUrl = this.href;  // Get the href value
-	  
-		  // Force reload of the page
-		  window.location.href = targetUrl;  // This will force the page to reload
-		});
-	  </script>
-	  <script type="text/javascript">
 		document.querySelectorAll('a').forEach(function(anchor) {
 			// Use both click and touchend to support both desktop and mobile
 			['click', 'touchend'].forEach(function(eventType) {
