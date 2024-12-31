@@ -1349,24 +1349,20 @@ const userInteractionEvents=["mouseover","keydown","touchstart","touchmove","whe
     });
   </script>
 
-<script type='text/javascript'>
-
-	(function()
-	{
-	  if( window.localStorage )
-	  {
-		if( !localStorage.getItem('firstLoad') )
-		{
-		  localStorage['firstLoad'] = true;
-		  window.location.reload();
-		}  
-		else
+<script type="text/javascript">
+	(function() {
+	  if (window.localStorage) {
+		// Prevent infinite redirect loop if we're already on index.html
+		if (!localStorage.getItem('firstLoad') && window.location.pathname !== '/index.html') {
+		  localStorage.setItem('firstLoad', true);
+		  window.location.reload();  // Page refresh only happens if it's not already on index.html
+		} else {
 		  localStorage.removeItem('firstLoad');
-		  window.location.reload();
+		}
 	  }
 	})();
-	
-	</script>
+  </script>
+  
 
 
 </body></html>
