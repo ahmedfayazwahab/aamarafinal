@@ -819,7 +819,7 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 			var targetUrl = this.href;
 			
 			// If the target is the same as the current URL, force a reload
-			if (window.location.href === targetUrl || window.location.href === "index.html") {
+			if (window.location.href === targetUrl || targetUrl === "index.html") {
 			  event.preventDefault();  // Prevent default navigation
 			  window.location.reload(); // Reload the page
 			}
