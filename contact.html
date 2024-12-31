@@ -811,20 +811,23 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 	})();
 	
 	</script>
-<script type="text/javascript">
-	document.querySelectorAll('a').forEach(function(anchor) {
-		// Use both click and touchend to support both desktop and mobile
-		['click', 'touchend'].forEach(function(eventType) {
-		  anchor.addEventListener(eventType, function(event) {
-			var targetUrl = this.href;
-			
-			// If the target is the same as the current URL, force a reload
-			if (window.location.href === targetUrl || targetUrl === "index.html") {
-			  event.preventDefault();  // Prevent default navigation
-			  window.location.reload(); // Reload the page
-			}
-		  });
-		});
+<script>
+	// Select all anchor tags linking to index.html
+	document.querySelectorAll('a[href="index.html"]').forEach(function(anchor) {
+	  anchor.addEventListener('click', function(event) {
+		var targetUrl = this.href;  // Get the href value (index.html)
+  
+		// Prevent the default behavior of the link
+		event.preventDefault();
+  
+		// Navigate to the index.html page
+		window.location.href = targetUrl;
+  
+		// Force a page refresh after a short delay
+		setTimeout(function() {
+		  window.location.reload();
+		}, 100);  // Wait for 100ms before refreshing the page
 	  });
-	</script>
+	});
+  </script>
 </body></html>
