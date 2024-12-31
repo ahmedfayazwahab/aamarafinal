@@ -1355,7 +1355,7 @@ const userInteractionEvents=["mouseover","keydown","touchstart","touchmove","whe
 		// Prevent infinite redirect loop if we're already on index.html
 		if (!localStorage.getItem('firstLoad') && window.location.pathname !== '/index.html') {
 		  localStorage.setItem('firstLoad', true);
-		  window.location.reload();  // Page refresh only happens if it's not already on index.html
+		  window.location.href = '/index.html';  
 		} else {
 		  localStorage.removeItem('firstLoad');
 		}
