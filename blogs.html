@@ -933,7 +933,7 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 	
 	</script>
 <script>
-	// Select all anchor tags linking to index.html
+	// Select all anchor tags pointing to index.html
 	document.querySelectorAll('a[href="index.html"]').forEach(function(anchor) {
 	  anchor.addEventListener('click', function(event) {
 		var targetUrl = this.href;  // Get the href value (index.html)
@@ -949,6 +949,14 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 		  window.location.reload();
 		}, 100);  // Wait for 100ms before refreshing the page
 	  });
+	});
+  
+	// Check if the current page is index.html and refresh on back navigation
+	window.addEventListener('load', function() {
+	  if (window.location.pathname === '/index.html' || window.location.href.endsWith('index.html')) {
+		// Force reload if we are on index.html (even on back navigation)
+		window.location.reload();
+	  }
 	});
   </script>
 </body></html>
