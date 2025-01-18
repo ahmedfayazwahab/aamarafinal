@@ -648,8 +648,8 @@ $(document).on('click','.menu-opener',function(e){var ScrollMarkerReserve=$('.he
 $(document).ready(function() {
     // Delay the overlay display by 3 seconds after page load
     setTimeout(function() {
-        // Check if the current page is either the root or index.html
-        if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+        var myDiv = document.getElementById('winterdiv'); 
+        if (myDiv.classList.contains('winter')){
             showOverlay1();
         }
     }, 5000); 
