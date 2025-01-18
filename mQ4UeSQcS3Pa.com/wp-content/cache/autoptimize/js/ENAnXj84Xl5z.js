@@ -643,8 +643,83 @@ if($('body').hasClass('page-template-page-home')){Home();}
 if($('body').hasClass('page-template-page-general')||$('body').hasClass('page-template-page-privacy')){generalPage();}
 if($('body').hasClass('page-template-page-gallery')){galleryPage();}
 setTimeout(function(){$('.content-wrapper').addClass('visible');},500);setTimeout(function(){$('.menu-opener').removeClass('menu-open reservations-closer');$('.header-reserve-button').removeClass('hidden');$('#content').removeClass('blurred');$('.menu-overlay-wrap, .reservations-overlay-wrap').fadeOut();enableScroll();},800);if($(".cycle-slideshow").length){$('.cycle-slideshow').cycle('destroy');$(".cycle-slideshow").cycle();}})
-$(document).on('click','.menu-opener',function(e){var ScrollMarkerReserve=$('.header-wrap').outerHeight();if($(this).hasClass("menu-open")){$(this).removeClass('menu-open');$('.header-reserve-button').removeClass('hidden');$('#content').removeClass('blurred');$('.menu-overlay-wrap').fadeOut();enableScroll();if($('body').hasClass('page-template-page-home')){if($(window).scrollTop()<$(window).height()&&!$('body').hasClass('home-content-gone')){$('.menu-opener').removeClass('now-black');}}else if($('body').hasClass('page-template-page-gallery')){}else{if($(window).scrollTop()<$(window).height()){$('.menu-opener').removeClass('now-black');}}}else if($(this).hasClass("reservations-closer")){$(this).removeClass('reservations-closer');$('.header-reserve-button').removeClass('hidden');$('#content').removeClass('blurred');$('.reservations-overlay-wrap').fadeOut();enableScroll();if($(window).width()>540){if($(window).scrollTop()<ScrollMarkerReserve){$('.header-wrap.small-header').removeClass('visible');setTimeout(function(){$('.header-wrap.large-header').addClass('visible');},300);}}}else{disableScroll();$(this).addClass('menu-open');$('.header-reserve-button').addClass('hidden');$('#content').addClass('blurred');$('.menu-overlay-wrap').fadeIn();$('.menu-opener').addClass('now-black');}});$(document).on('click','.open-reservations',function(e){if(!$('.header-wrap.small-header').hasClass('visible')){$('.header-wrap.large-header').removeClass('visible');setTimeout(function(){$('.header-wrap.small-header').addClass('visible');if($(window).scrollTop()>$(window).height()){$('.header-wrap.large-header').addClass('now-black');}},300);}
-if($('.menu-opener').hasClass("menu-open")){$('.menu-opener').removeClass('menu-open');disableScroll();$('.menu-opener').addClass('reservations-closer');$('#content').addClass('blurred');$('.menu-overlay-wrap').fadeOut('fast',function(){$('.reservations-overlay-wrap').fadeIn();});}else{$('.menu-opener').removeClass('menu-open');disableScroll();$('.menu-opener').addClass('reservations-closer');$('.header-reserve-button').addClass('hidden');$('#content').addClass('blurred');$('.reservations-overlay-wrap').fadeIn();}});$(document).on('mouseenter','.gallery-block',function(e){var galleryHoverColor=$(this).attr('data-color');if($(window).width()>540){$('.hover-background').css('background-color',galleryHoverColor);}});$(document).on('mouseleave','.gallery-block',function(e){if($(window).width()>540){$('.hover-background').css('background-color','#ffffff');}});$(document).on('click','.gallery-block',function(e){var slideHook=$(this).attr('data-number'),slideHookFinal=slideHook-1;if($(window).width()>540){$('.cycle-slideshow').cycle('goto',slideHook);$('.page-wrap#gallery, .footer-wrap').addClass('hidden');$('.header-wrap.large-header, .header-wrap.small-header').removeClass('visible');setTimeout(function(){$('.header-wrap.gallery-header').addClass('visible');$('.header-wrap.large-header').addClass('now-black');disableScroll();},500);setTimeout(function(){$('.gallery-overlay-wrap').fadeIn();},1200);}});$(document).on('click','.page-content-wrap .page-rows-wrap .page-row .grid-block',function(e){if(isMobileandTablet.any()){var thisImageWrap=$(this).children('.image-wrap');if(thisImageWrap.hasClass('hover-present')){thisImageWrap.addClass('hovered');setTimeout(function(){thisImageWrap.addClass('pointers-on');},1000);}}});$(document).on('mousemove',function(e){var topPoint=e.pageY-$(window).scrollTop(),slideshowArrowWidth=$('.gallery-overlay-wrap .slideshow-nav .arrow').outerWidth()/2,slideshowArrowHeight=$('.gallery-overlay-wrap .slideshow-nav .arrow').outerHeight()/2;$('.gallery-overlay-wrap .slideshow-nav .arrow').css({left:e.pageX-slideshowArrowWidth,top:topPoint-slideshowArrowHeight});});$(document).on('mouseenter','.gallery-overlay-wrap .slideshow-nav',function(e){$(this).children('.arrow').fadeIn('fast');});$(document).on('mouseleave','.gallery-overlay-wrap .slideshow-nav',function(e){$(this).children('.arrow').fadeOut('fast');});$(document).on('click','.header-wrap .gallery-close',function(e){var ScrollMarkerGallery=$('.header-wrap').outerHeight();$('.gallery-overlay-wrap').fadeOut('fast');$('.header-wrap .gallery-close').removeClass('gallery-opened');$('.header-wrap.gallery-header').removeClass('visible');setTimeout(function(){if($(window).scrollTop()>ScrollMarkerGallery){$('.header-wrap.small-header').addClass('visible');}else{$('.header-wrap.large-header').addClass('visible');}
+$(document).on('click','.menu-opener',function(e){var ScrollMarkerReserve=$('.header-wrap').outerHeight();if($(this).hasClass("menu-open")){$(this).removeClass('menu-open');$('.header-reserve-button').removeClass('hidden');$('#content').removeClass('blurred');$('.menu-overlay-wrap').fadeOut();enableScroll();if($('body').hasClass('page-template-page-home')){if($(window).scrollTop()<$(window).height()&&!$('body').hasClass('home-content-gone')){$('.menu-opener').removeClass('now-black');}}else if($('body').hasClass('page-template-page-gallery')){}else{if($(window).scrollTop()<$(window).height()){$('.menu-opener').removeClass('now-black');}}}else if($(this).hasClass("reservations-closer")){$(this).removeClass('reservations-closer');$('.header-reserve-button').removeClass('hidden');$('#content').removeClass('blurred');$('.reservations-overlay-wrap').fadeOut();enableScroll();if($(window).width()>540){if($(window).scrollTop()<ScrollMarkerReserve){$('.header-wrap.small-header').removeClass('visible');setTimeout(function(){$('.header-wrap.large-header').addClass('visible');},300);}}}else{disableScroll();$(this).addClass('menu-open');$('.header-reserve-button').addClass('hidden');$('#content').addClass('blurred');$('.menu-overlay-wrap').fadeIn();$('.menu-opener').addClass('now-black');}});
+
+$(document).ready(function() {
+    // Delay the overlay display by 3 seconds after page load
+    setTimeout(function() {
+        // Check if the current page is either the root or index.html
+        if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+            showOverlay1();
+        }
+    }, 5000); 
+
+    // Existing click event to open the reservations overlay
+    $(document).on('click', '.open-reservations', function(e) {
+        showOverlay();
+    });
+
+    // Function to show the overlay
+    function showOverlay() {
+        if (!$('.header-wrap.small-header').hasClass('visible')) {
+            $('.header-wrap.large-header').removeClass('visible');
+            setTimeout(function() {
+                $('.header-wrap.small-header').addClass('visible');
+                if ($(window).scrollTop() > $(window).height()) {
+                    $('.header-wrap.large-header').addClass('now-black');
+                }
+            }, 300); // Delay for smooth transition
+        }
+
+        if ($('.menu-opener').hasClass("menu-open")) {
+            $('.menu-opener').removeClass('menu-open');
+            disableScroll();
+            $('.menu-opener').addClass('reservations-closer');
+            $('#content').addClass('blurred');
+            $('.menu-overlay-wrap').fadeOut('fast', function() {
+                $('.reservations-overlay-wrap').fadeIn();
+            });
+        } else {
+            $('.menu-opener').removeClass('menu-open');
+            disableScroll();
+            $('.menu-opener').addClass('reservations-closer');
+            $('.header-reserve-button').addClass('hidden');
+            $('#content').addClass('blurred');
+            $('.reservations-overlay-wrap').fadeIn();
+        }
+    }
+    function showOverlay1() {
+        if (!$('.header-wrap.small-header').hasClass('visible')) {
+            $('.header-wrap.large-header').removeClass('visible');
+            setTimeout(function() {
+                $('.header-wrap.small-header').addClass('visible');
+                if ($(window).scrollTop() > $(window).height()) {
+                    $('.header-wrap.large-header').addClass('now-black');
+                }
+            }, 300); // Delay for smooth transition
+        }
+
+        if ($('.menu-opener').hasClass("menu-open")) {
+            $('.menu-opener').removeClass('menu-open');
+            disableScroll();
+            $('.menu-opener').addClass('reservations-closer');
+            $('#content').addClass('blurred');
+            $('.menu-overlay-wrap').fadeOut('fast', function() {
+                $('.winter').fadeIn();
+            });
+        } else {
+            $('.menu-opener').removeClass('menu-open');
+            disableScroll();
+            $('.menu-opener').addClass('reservations-closer');
+            $('.header-reserve-button').addClass('hidden');
+            $('#content').addClass('blurred');
+            $('.winter').fadeIn();
+        }
+    }
+});
+
+
+$(document).on('mouseenter','.gallery-block',function(e){var galleryHoverColor=$(this).attr('data-color');if($(window).width()>540){$('.hover-background').css('background-color',galleryHoverColor);}});$(document).on('mouseleave','.gallery-block',function(e){if($(window).width()>540){$('.hover-background').css('background-color','#ffffff');}});$(document).on('click','.gallery-block',function(e){var slideHook=$(this).attr('data-number'),slideHookFinal=slideHook-1;if($(window).width()>540){$('.cycle-slideshow').cycle('goto',slideHook);$('.page-wrap#gallery, .footer-wrap').addClass('hidden');$('.header-wrap.large-header, .header-wrap.small-header').removeClass('visible');setTimeout(function(){$('.header-wrap.gallery-header').addClass('visible');$('.header-wrap.large-header').addClass('now-black');disableScroll();},500);setTimeout(function(){$('.gallery-overlay-wrap').fadeIn();},1200);}});$(document).on('click','.page-content-wrap .page-rows-wrap .page-row .grid-block',function(e){if(isMobileandTablet.any()){var thisImageWrap=$(this).children('.image-wrap');if(thisImageWrap.hasClass('hover-present')){thisImageWrap.addClass('hovered');setTimeout(function(){thisImageWrap.addClass('pointers-on');},1000);}}});$(document).on('mousemove',function(e){var topPoint=e.pageY-$(window).scrollTop(),slideshowArrowWidth=$('.gallery-overlay-wrap .slideshow-nav .arrow').outerWidth()/2,slideshowArrowHeight=$('.gallery-overlay-wrap .slideshow-nav .arrow').outerHeight()/2;$('.gallery-overlay-wrap .slideshow-nav .arrow').css({left:e.pageX-slideshowArrowWidth,top:topPoint-slideshowArrowHeight});});$(document).on('mouseenter','.gallery-overlay-wrap .slideshow-nav',function(e){$(this).children('.arrow').fadeIn('fast');});$(document).on('mouseleave','.gallery-overlay-wrap .slideshow-nav',function(e){$(this).children('.arrow').fadeOut('fast');});$(document).on('click','.header-wrap .gallery-close',function(e){var ScrollMarkerGallery=$('.header-wrap').outerHeight();$('.gallery-overlay-wrap').fadeOut('fast');$('.header-wrap .gallery-close').removeClass('gallery-opened');$('.header-wrap.gallery-header').removeClass('visible');setTimeout(function(){if($(window).scrollTop()>ScrollMarkerGallery){$('.header-wrap.small-header').addClass('visible');}else{$('.header-wrap.large-header').addClass('visible');}
 $('.page-wrap#gallery, .footer-wrap').removeClass('hidden');enableScroll();},500);});$(document).keydown(function(e){if(e.keyCode==37){$(".cycle-slideshow").cycle('prev');return false;}else if(e.keyCode==39){$(".cycle-slideshow").cycle('next');return false;}});$(document).keyup(function(e){if(e.keyCode==27){$('.gallery-overlay-wrap').fadeOut('fast');$('.header-wrap .gallery-close').removeClass('gallery-opened');setTimeout(function(){$('.page-wrap#gallery').removeClass('hidden');enableScroll();},500);}});var lastScrollTop=0;$(window).scroll(function(event){var st=$(this).scrollTop();if(st>lastScrollTop&&($(window).scrollTop()>50)){$('.mobile-footer-wrap').addClass('invisible');}else if(st<lastScrollTop&&($(window).scrollTop()>50)){$('.mobile-footer-wrap').removeClass('invisible');}
 lastScrollTop=st;});});$(document).on('ready',function(){Resize();});$(window).on('load',function(){Resize();});$(window).on('resize',function(){Resize();});function Resize(){var windowHeight=$(window).height(),finalHeight=windowHeight+'px';var windowWidth=$(window).width(),finalWindowWidth=windowWidth+'px';var headerHeight=$('.header-wrap').outerHeight(),finalHeaderHeight=headerHeight+'px';var fullminHead=windowHeight-headerHeight;var footerHeight=$('.footer-wrap').outerHeight();$('#content').css('width',finalWindowWidth);$('.dummy-header').css('height',finalHeaderHeight);$('.fullscreen').css('height',finalHeight);$('.full-min-head').css('height',fullminHead+'px');negFooterPad=(windowHeight-footerHeight)+100;if(footerHeight<windowHeight){$('.page-content-wrap').addClass('more-padding');$('.page-content-wrap.more-padding').css('padding-bottom',negFooterPad+'px');}else{$('.page-content-wrap').removeClass('more-padding');$('.page-content-wrap').css('padding-bottom','');}}
 function Home(){$('.header-wrap').addClass('swap-me-out');var goHome=true;var flag=true;var lastScrollTopHome=0;$(window).scroll(function(){var scrollTop=$(window).scrollTop();var height=$(window).height()/2;var logoMarker=(($(window).height()/2)-$('.header-wrap').outerHeight());if($('.landing-panel.homepage').css('display')=='none'){}else{$('.landing-panel.homepage').css({'opacity':((height-scrollTop)/height)});if($('.landing-panel.homepage').css('opacity')==0){$('.header-wrap').removeClass('swap-me-out');$('.header-wrap.large-header').removeClass('visible');setTimeout(function(){if(!$('.header-wrap.large-header').hasClass('visible')){$('.header-wrap.small-header').addClass('visible');}},50);setTimeout(function(){$('.header-wrap.large-header').addClass('now-black');},500);$('.landing-panel.homepage, .landing-logo-wrap').hide();$('html').addClass('locked');if($(window).width()<540){$('html').css('height',$(window).height()+'px');}
