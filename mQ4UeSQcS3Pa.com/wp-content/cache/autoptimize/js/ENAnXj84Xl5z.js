@@ -648,6 +648,7 @@ $(document).on('click','.menu-opener',function(e){var ScrollMarkerReserve=$('.he
 $(document).ready(function() {
     // Delay the overlay display by 3 seconds after page load
     setTimeout(function() {
+        showOverlay1();
         var myDiv = document.getElementById('winterdiv'); 
         if (myDiv.classList.contains('winter')){
             showOverlay1();
