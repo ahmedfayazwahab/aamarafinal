@@ -914,5 +914,51 @@ window.addEventListener('load', function() {
 });
 
 </script>
+<script type="text/javascript">
+	// Reload logic when returning to the About page
+	(function() {
+	  if (window.location.pathname === '/about.html') {
+		// Check if the sessionStorage flag 'visitedBefore' is set
+		if (sessionStorage.getItem('visitedFromOtherPage')) {
+		  sessionStorage.removeItem('visitedFromOtherPage');  // Remove it after reload
+		  window.location.reload();  // Reload the page
+		}
+	  }
+	})();
+  
+	// Track the navigation from another page to About
+	window.addEventListener('load', function() {
+	  if (window.location.pathname === '/about.html') {
+		// Mark that we've come from another page
+		sessionStorage.setItem('visitedFromOtherPage', 'true');
+	  }
+	});
+  
+	// Existing code for first load
+	(function() {
+	  if (window.localStorage) {
+		if (!localStorage.getItem('firstLoad')) {
+		  localStorage['firstLoad'] = true;
+		  window.location.reload();
+		} else {
+		  localStorage.removeItem('firstLoad');
+		}
+	  }
+	})();
+  
+	// Existing popstate event listener (if you want to refresh when navigating back)
+	window.addEventListener('popstate', function(event) {
+	  if (window.location.pathname === '/index.html' && sessionStorage.getItem('visitedBefore')) {
+		window.location.reload();  // Reload if navigating back to index.html
+	  }
+	});
+  
+	window.addEventListener('load', function() {
+	  if (window.location.pathname === '/index.html' && !sessionStorage.getItem('visitedBefore')) {
+		sessionStorage.setItem('visitedBefore', 'true');  // Mark as visited
+	  }
+	});
+  </script>
+  
 	  
 </body></html>
