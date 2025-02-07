@@ -915,38 +915,32 @@ window.addEventListener('load', function() {
 
 </script>
 <script type="text/javascript">
-	// Reload logic when returning to the About page
+	// Check if we are on the About page and handle the reload behavior
 	(function() {
 	  if (window.location.pathname === '/about.html') {
-		// Check if the sessionStorage flag 'visitedBefore' is set
-		if (sessionStorage.getItem('visitedFromOtherPage')) {
-		  sessionStorage.removeItem('visitedFromOtherPage');  // Remove it after reload
-		  window.location.reload();  // Reload the page
+		// Check if the page has been visited from another page (via sessionStorage)
+		if (!sessionStorage.getItem('visitedFromOtherPage')) {
+		  sessionStorage.setItem('visitedFromOtherPage', 'true');  // Mark that we came from another page
+		} else {
+		  sessionStorage.removeItem('visitedFromOtherPage');  // Remove the flag after reloading
+		  window.location.reload();  // Reload the page if it's coming back from another page
 		}
 	  }
 	})();
   
-	// Track the navigation from another page to About
-	window.addEventListener('load', function() {
-	  if (window.location.pathname === '/about.html') {
-		// Mark that we've come from another page
-		sessionStorage.setItem('visitedFromOtherPage', 'true');
-	  }
-	});
-  
-	// Existing code for first load
+	// Existing code for the first load of the page
 	(function() {
 	  if (window.localStorage) {
 		if (!localStorage.getItem('firstLoad')) {
 		  localStorage['firstLoad'] = true;
-		  window.location.reload();
+		  window.location.reload();  // Reload the page on first load
 		} else {
 		  localStorage.removeItem('firstLoad');
 		}
 	  }
 	})();
   
-	// Existing popstate event listener (if you want to refresh when navigating back)
+	// Existing popstate event listener (if you want to refresh when navigating back to the index page)
 	window.addEventListener('popstate', function(event) {
 	  if (window.location.pathname === '/index.html' && sessionStorage.getItem('visitedBefore')) {
 		window.location.reload();  // Reload if navigating back to index.html
@@ -955,7 +949,7 @@ window.addEventListener('load', function() {
   
 	window.addEventListener('load', function() {
 	  if (window.location.pathname === '/index.html' && !sessionStorage.getItem('visitedBefore')) {
-		sessionStorage.setItem('visitedBefore', 'true');  // Mark as visited
+		sessionStorage.setItem('visitedBefore', 'true');  // Mark the index page as visited
 	  }
 	});
   </script>
