@@ -21,5 +21,6 @@ Allow: /kayiru-katti-mutton-kola-urundai.html
 Allow: /rold-gold-lamb-chop.html
 Allow: /special-dosa.html
 Allow: /spring-berry-jamun.html
+Allow: /winterlicious.html
 
 Sitemap: https://aamara.ca/sitemap.xml
