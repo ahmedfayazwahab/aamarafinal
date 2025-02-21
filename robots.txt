@@ -1,6 +1,6 @@
 User-agent: *
-Disallow: /
 
+Disallow: /
 Allow: /$ 
 Allow: /contact.html
 Allow: /blogs.html
@@ -22,5 +22,7 @@ Allow: /rold-gold-lamb-chop.html
 Allow: /special-dosa.html
 Allow: /spring-berry-jamun.html
 Allow: /winterlicious.html
+
+Allow: /sitemap.xml
 
 Sitemap: https://aamara.ca/sitemap.xml
