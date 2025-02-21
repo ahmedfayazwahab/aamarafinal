@@ -23,4 +23,6 @@ Allow: /special-dosa.html
 Allow: /spring-berry-jamun.html
 Allow: /winterlicious.html
 
+Allow: /sitemap.xml
+
 Sitemap: https://aamara.ca/sitemap.xml
