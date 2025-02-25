@@ -5,6 +5,11 @@
 <title>Authentic Indian Menu in Toronto | Dishes, Cocktails & Desserts - Aamara</title>
 <meta charset="UTF-8">
 
+<!-- Menu CSS -->
+<link rel="stylesheet" href="85842c99775e37a5.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+
 <!-- Meta Tags for SEO -->
 <meta name="description" content="Explore Aamara's authentic Indian menu featuring flavorful curries, handcrafted cocktails, and delectable desserts. Enjoy the best butter chicken, Rold Gold Lamb Chops, and signature cocktails inspired by Indian spices in Toronto.">
 <meta name="keywords" content="Best Indian curry dishes in Toronto, Popular Indian vegetarian dishes in Toronto, Authentic Indian tandoori dishes Toronto, Traditional Indian rice dishes Toronto, Spicy Indian dishes in downtown Toronto, Healthy Indian dishes in Toronto, Best classic butter chicken in Toronto, Classic butter chicken near me Toronto, Flavorful Indian seafood dishes Toronto, Rold Gold Lamb Chop in Toronto, Best Kayaru Katti Mutton Kola Urundai in Toronto, Best Pachakari Moilee Korma in Toronto, Unique craft cocktails in Toronto, Exotic cocktails with Indian spices Toronto, Handcrafted cocktails near CN Tower Toronto, Best Indian-inspired cocktails in Toronto, Signature cocktails at Aamara Toronto, Best Indian desserts in Toronto, Vegan Indian desserts near Toronto, Traditional Indian sweets in Toronto, Gluten-free Indian desserts Toronto, Indian dessert spots downtown Toronto">
@@ -227,6 +232,172 @@ var wpgmza_google_api_status = {"message":"Enqueued","code":"ENQUEUED"};
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
 <link rel="stylesheet" href="assets/css/styles.css">
 
+
+
+
+
+
+<!-- Styles for menu components -->
+<style>
+	body {
+		font-family: 'Montserrat', sans-serif;
+		margin: 0;
+		padding: 0;
+		background-color: #f9f9f9;
+		color: #333;
+	}
+
+	.menu-container {
+		max-width: 1200px;
+		margin: 20px auto;
+		padding: 40px;
+		background-color: #fff;
+		border-radius: 15px;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	}
+
+	.menu-tabs, .sub-menu-tabs {
+		display: flex;
+		justify-content: center;
+		gap: 20px;
+		font-size: 20px;
+		font-weight: bold;
+		cursor: pointer;
+		padding: 15px;
+		border-bottom: 2px solid #eee;
+		flex-wrap: wrap;
+	}
+
+	.menu-tabs .tab, .sub-menu-tabs .sub-tab {
+		padding: 10px 20px;
+		transition: color 0.3s ease;
+		position: relative;
+	}
+
+	.menu-tabs .tab.active::after, .sub-menu-tabs .sub-tab.active::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: -17px;
+		width: 100%;
+		height: 3px;
+		background-color: #ff6b6b;
+		border-radius: 2px;
+	}
+
+	.menu-tabs .tab:hover, .sub-menu-tabs .sub-tab:hover {
+		color: #ff6b6b;
+	}
+
+	.menu-content, .sub-menu-content {
+		display: none;
+		padding: 20px;
+	}
+
+	.menu-content.active, .sub-menu-content.active {
+		display: block;
+	}
+
+	.menu-items {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+	}
+
+	.menu-item2 {
+		display: flex;
+		align-items: center;
+		padding: 20px;
+		border: 1px solid #eee;
+		border-radius: 12px;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.menu-item2:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	}
+
+	.menu-item2 img {
+		width: 100px;
+		height: 100px;
+		object-fit: cover;
+		border-radius: 10px;
+		margin-right: 20px;
+	}
+
+	.menu-item2 .details {
+		flex-grow: 1;
+	}
+
+	.menu-item2 .name {
+		font-size: 18px;
+		font-weight: 600;
+		color: #333;
+		margin-bottom: 5px;
+	}
+
+	.menu-item2 .price {
+		font-size: 18px;
+		font-weight: bold;
+		color: #ff6b6b;
+	}
+
+	.menu-item2 .description {
+		font-size: 14px;
+		color: #777;
+		margin-top: 5px;
+	}
+
+	.category-image {
+		margin: auto;
+		width: 50%;
+		height: 300px;
+		object-fit: cover;
+		border-radius: 12px;
+		margin-bottom: 20px;
+	}
+
+	@media (max-width: 768px){
+			.category-image {
+			margin: auto;
+			width: 100%;
+			height: 300px;
+			object-fit: cover;
+			border-radius: 12px;
+			margin-bottom: 20px;
+		}
+	}
+
+	@keyframes fadeIn {
+		from { opacity: 0; }
+		to { opacity: 1; }
+	}
+
+	.menu-content.active, .sub-menu-content.active {
+		animation: fadeIn 0.5s ease;
+	}
+
+	@media (max-width: 768px) {
+		.menu-items {
+			grid-template-columns: 1fr;
+		}
+
+		.menu-tabs, .sub-menu-tabs {
+			gap: 10px;
+			font-size: 18px;
+		}
+
+		.menu-item2 {
+			padding: 15px;
+		}
+
+		.menu-item2 img {
+			width: 80px;
+			height: 80px;
+		}
+	}
+</style>
 </head>
 
 <body id="home" style="font-family: 'DomaineSansText-Light';" class="home page-template page-template-page-home page-template-page-home-php page page-id-6">
@@ -437,54 +608,543 @@ If your preferred time is not available please get in touch<br>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 0.49803921568627"></feFuncR><feFuncG type="table" tableValues="0 0.49803921568627"></feFuncG><feFuncB type="table" tableValues="0 0.49803921568627"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 1"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0 1"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 1"></feFuncR><feFuncG type="table" tableValues="0 0.27843137254902"></feFuncG><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0 0"></feFuncR><feFuncG type="table" tableValues="0 0.64705882352941"></feFuncG><feFuncB type="table" tableValues="0 1"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.78039215686275 1"></feFuncR><feFuncG type="table" tableValues="0 0.94901960784314"></feFuncG><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745"></feFuncR><feFuncG type="table" tableValues="0 1"></feFuncG><feFuncB type="table" tableValues="0.44705882352941 0.4"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></feColorMatrix><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="0.098039215686275 1"></feFuncR><feFuncG type="table" tableValues="0 0.66274509803922"></feFuncG><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725"></feFuncB><feFuncA type="table" tableValues="1 1"></feFuncA></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"></feComposite></filter></defs></svg>
 <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
-		<div data-elementor-type="header" data-elementor-id="1480" class="elementor elementor-1480 elementor-location-header" data-elementor-post-type="elementor_library">
-						
-		
-						</div>
-				<div data-elementor-type="wp-page" data-elementor-id="73" class="elementor elementor-73" data-elementor-post-type="page">
-							
-		<div class="elementor-element elementor-element-6c8f4d2 e-con-full e-flex e-con e-parent" data-id="6c8f4d2" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;,&quot;background_background&quot;:&quot;classic&quot;,&quot;container_type&quot;:&quot;flex&quot;}" data-core-v316-plus="true">
-		<div class="elementor-element elementor-element-5caa6d18 e-con-full e-flex e-con e-child" data-id="5caa6d18" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;,&quot;container_type&quot;:&quot;flex&quot;}">
-				<div class="elementor-element elementor-element-6ff03bd5 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="6ff03bd5" data-element_type="widget" data-widget_type="image.default">
-			
-				</div>
-				<div class="elementor-element elementor-element-73c4226c elementor-widget elementor-widget-heading" data-id="73c4226c" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-			<h3 class="elementor-heading-title elementor-size-default" style=" font-family: 'DomaineSansText-Light';">Stylish Menu Coming Soon:<br> A Visual Feast for the Eyes!<br><br>
-				<p>Click Here for PDF Menu:</p>
-				<a style="font-size: medium; color: black;text-decoration: underline;" target="_blank" href="aamara-menu.pdf">À La Carte</a><br>
-				
-			
-			</div>
-				</div>
-				<div class="elementor-element elementor-element-3991c3a4 elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="3991c3a4" data-element_type="widget" data-widget_type="text-editor.default">
-				<div class="elementor-widget-container">
-			<style>/*! elementor - v3.18.0 - 04-12-2023 */
-.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				
 
+<!-- Menu components start -->
+<div class="menu-container" style="font-style: italic;">
+	<div class="menu-tabs">
+		<div class="tab active" onclick="showMenu('food', this)">À La Carte </div>
+		<div class="tab" onclick="showMenu('drinks', this)">Drinks</div>
+		<div class="tab" onclick="showMenu('happyhour', this)">Occasional Menu</div>
+	</div>
 
-
-
-
-
-</div>
-				</div>
-				<div class="elementor-element elementor-element-38b30b71 elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="38b30b71" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-																													</div>
-				</div>
-				</div>
-				</div>
-		
-		
-		
-		<div class="elementor-element elementor-element-cd31abb e-flex e-con-boxed e-con e-parent" data-id="cd31abb" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;container_type&quot;:&quot;flex&quot;,&quot;content_width&quot;:&quot;boxed&quot;}" data-core-v316-plus="true">
-					<div class="e-con-inner">
-		
+	<!-- Food Section -->
+	<div id="food" class="menu-content active">
+		<div class="sub-menu-tabs">
+			<div class="sub-tab active" onclick="showSubMenu('Palate Triggers', this)">Palate Triggers</div>
+			<div class="sub-tab" onclick="showSubMenu('Epicure’s Bounty', this)">Epicure’s Bounty</div>
+			<div class="sub-tab" onclick="showSubMenu('Probiotic Plates', this)">Probiotic Plates</div>
+			<div class="sub-tab" onclick="showSubMenu('From the Clay Oven', this)">From the Clay Oven</div>
+			<div class="sub-tab" onclick="showSubMenu('Hot Pots', this)">Hot Pots</div>
+			<div class="sub-tab" onclick="showSubMenu('Small Plates', this)">Small Plates</div>
+			<div class="sub-tab" onclick="showSubMenu('Breads', this)">Breads</div>
+			<div class="sub-tab" onclick="showSubMenu('desserts', this)">Desserts</div>
+		</div>
+		<div id="Palate Triggers" class="sub-menu-content active">
+			<img src="menuImages/appetizer.jpg" alt="Appetizers" class="category-image">
+			<div class="menu-items">
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Potli Samosa</div>
+						<div class="price">$14</div>
+						<div class="description">Traditional preparation of crunchy money bag samosa with potato filling</div>
 					</div>
 				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Gunpowder idli </div>
+						<div class="price">$16</div>
+						<div class="description">Pinnacle of spice powdered tiny idlis, served on banana leaf</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Kayiru katti mutton kola urundai</div>
+						<div class="price">$21</div>
+						<div class="description">Uniquely presented lamb mince spheroid, served with chutney</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+				<div class="details">
+					<div class="name">Rold gold lamb chop</div>
+					<div class="price">$28</div>
+					<div class="description">Tandoor marinated lamb chop wrapped with 24 karat gold leaves</div>
+				</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Chicken avocado chaat</div>
+						<div class="price">$18</div>
+						<div class="description">Indian street chaat curated with avocado and yogurt whip</div>
+				</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Anchovy fish fry</div>
+						<div class="price">$19</div>
+						<div class="description">Ray-finned anchovies with spice rub, served in copper bucket</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="Epicure’s Bounty" class="sub-menu-content">
+			<img src="menuImages/maincourse.jpg" alt="Appetizers" class="category-image">
+			<div class="menu-items">
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Purple malai kofta</div>
+						<div class="price">$26</div>
+						<div class="description">Nutty all blue malai sphere float on rich white onion gravy</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Baingan bharta</div>
+						<div class="price">$28</div>
+						<div class="description">Chargrilled eggplant cooked with herbs, served with thepla bread</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Paneer pasanda </div>
+						<div class="price">$28</div>
+						<div class="description">Stuffed cottage cheese layers float on mild creamy curry</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Pachakari moilee kurma</div>
+						<div class="price">$28</div>
+						<div class="description">Famous Kerala region coconut curry paired with string hoppers</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Classic butter chicken</div>
+						<div class="price">$28</div>
+						<div class="description">Tandoor smoked cornish hen, served with flow of silky butter sauce</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Venison Chettinadu</div>
+						<div class="price">$33</div>
+						<div class="description">Venison meat seasoned with 12 South Indian spices</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Short ribs vindaloo</div>
+						<div class="price">$31</div>
+						<div class="description">Beef short ribs braised with potatoes in Goan style curry</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Lamb sukka </div>
+						<div class="price">$33</div>
+						<div class="description">Pan seared lamb cubes with coconut flakes, curry leaves and exotic masala, served with kal dosa</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Goan seabass curry</div>
+						<div class="price">$31</div>
+						<div class="description">Grilled pinwheel seabass, served with Goan style coconut curry</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="Probiotic Plates" class="sub-menu-content">
+			<img src="menuImages/specialdosa.jpg" alt="Appetizers" class="category-image">
+			<div class="menu-items">
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Special dosa</div>
+						<div class="price">$21</div>
+						<div class="description">Plain thin crisp dosa serving with your choice: Desi Ghee / Butter / Gingelly oil</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Aamara special masala dosa</div>
+						<div class="price">$25</div>
+						<div class="description">Thin crisp dosa stuffed with options of masala: Paneer / Aloo</div>
+					</div>
+				</div><div class="menu-item2">
+					<div class="details">
+						<div class="name">Chettinadu chicken dosa</div>
+						<div class="price">$30</div>
+						<div class="description">Thin crisp dosa stuffed with succulent chicken flavoured with 18 spices</div>
+					</div>
+				</div><div class="menu-item2">
+					<div class="details">
+						<div class="name">Bullet uttapam </div>
+						<div class="price">$22</div>
+						<div class="description">Pancake grilled with onion, chilli, cheese and spread of gunpowder</div>
+					</div>
+				</div><div class="menu-item2">
+					<div class="details">
+						<div class="name">Spring veggie uttapam </div>
+						<div class="price">$25</div>
+						<div class="description">Uttapam topped with julienne of carrot beans beet</div>
+					</div>
+				</div><div class="menu-item2">
+					<div class="details">
+						<div class="name">Aamara special venison uttapam</div>
+						<div class="price">$33</div>
+						<div class="description">Tender venison cooked with South Indian spices topped with eggs</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="From the Clay Oven" class="sub-menu-content">
+			<img src="menuImages/lobstertail.jpg" alt="Appetizers" class="category-image">
+			<div class="menu-items">
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Tandoori cornish chicken</div>
+						<div class="price">$32</div>
+						<div class="description">Free range whole cornish hen marinated and cooked to get smoke, served with house potato fries</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Basil chicken tikka </div>
+						<div class="price">$24</div>
+						<div class="description">Boneless chicken thigh chargrilled with basil marinade and plated with house fries</div>
+					</div>
+				</div><div class="menu-item2">
+					<div class="details">
+						<div class="name">Beef seekh kebab</div>
+						<div class="price">$26</div>
+						<div class="description">15% fat Wagyu beef mince spiced up for kebab and hand printed seekh roasted in tandoor</div>
+					</div>
+				</div><div class="menu-item2">
+					<div class="details">
+						<div class="name">Tandoori lobster tail</div>
+						<div class="price">$28</div>
+						<div class="description">Atlantic lobster tail marinade with orange, coriander seed and black cumin, smoked in tandoor</div>
+					</div>
+				</div><div class="menu-item2">
+					<div class="details">
+						<div class="name">Sarson ke phool </div>
+						<div class="price">$20</div>
+						<div class="description">Mustard-cured broccoli florets, chargrilled in tandoor,
+							served with papad cone and house fries</div>
+					</div>
+				</div><div class="menu-item2">
+					<div class="details">
+						<div class="name">Tandoori charcuterie platter</div>
+						<div class="price">$72</div>
+						<div class="description">A lavish wooden board featuring cornish hen, lamb chops, basil chicken, beef sheek, lobster tail, tandoori broccoli, homemade cottage cheese, nuts, desi crackers, mesclun leaves, fruits and 2 shots of paani</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="Hot Pots" class="sub-menu-content">
+			<div class="menu-items">
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Hyderabadi chicken biryani </div>
+						<div class="price">$33</div>
+						<div class="description">Aged basmati rice layered with 18 spiced marinated chicken cooked in unique way, served with salad, raita and salan</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Hyderabadi lamb biryani </div>
+						<div class="price">$34</div>
+						<div class="description">Succulent lamb cubes, delicately spiced and paired with aromatic basmati rice, served with salad, raita, and savory salan.</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Vegetable dum biryani </div>
+						<div class="price">$20</div>
+						<div class="description">Fragrant saffron rice layered with seasoned garden vegetables and sweet caramelized onions.</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Kashmiri pulao</div>
+						<div class="price">$14</div>
+						<div class="description">Aged basmati rice dish packed with toasted nuts, fruits, spices and saffron with a mild and faintly sweet in taste</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="Small Plates" class="sub-menu-content">
+			<div class="menu-items">
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Dal makhani </div>
+						<div class="price">$15</div>
+						<div class="description">Slow cooked black lentils prepare for buttery, creamy and flavourful</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Chole khakhra</div>
+						<div class="price">$16</div>
+						<div class="description">Tender chick peas cooked in crunchy onion tomato gravy</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Peanut cornucopia</div>
+						<div class="price">$14</div>
+						<div class="description">Peanut chatpatta salad in dosa cone</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Steamed rice </div>
+						<div class="price">$5</div>
+						<div class="description">Homestyle rice</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="Breads" class="sub-menu-content">
+			<div class="menu-items">
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Curried mushroom naan </div>
+						<div class="price">$14</div>
+						<div class="description">Wild mushroom, herbs and spice fill - truffle oil</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Chicken tikka naan</div>
+						<div class="price">$16</div>
+						<div class="description">Diced tandoori chicken fill - soft butter</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Peshawari naan </div>
+						<div class="price">$16</div>
+						<div class="description">Chopped nuts, raisins and coconut fill – white butter and honey</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Tricheese chilli naan</div>
+						<div class="price">$10</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Butter naan</div>
+						<div class="price">$6</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Garlic naan</div>
+						<div class="price">$7</div>
+					</div>
+				</div><div class="menu-item2">
+					<div class="details">
+						<div class="name">Roti</div>
+						<div class="price">$5</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Laccha paratha</div>
+						<div class="price">$7</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="desserts" class="sub-menu-content">
+			<img src="menuImages/dessert.jpg" alt="Appetizers" class="category-image">
+			<div class="menu-items">
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Chilled elaneer payasam</div>
+						<div class="price">$22</div>
+						<div class="description">Chilled tender coconut delicacy</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Nizam ka Meeta </div>
+						<div class="price">$25</div>
+						<div class="description">A royal Mughal dessert with white chocolate, red berries, and luxurious golden dust</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Spring berry jamun</div>
+						<div class="price">$23</div>
+						<div class="description">Rose syrup jamun slab crowned with stiffy meringue, rose and berries</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Ghevar Affogato </div>
+						<div class="price">$24</div>
+						<div class="description">Crunchy honeycomb paired with Italian-style ice cream and Arabica coffee</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Drinks Section -->
+	<div id="drinks" class="menu-content">
+		<div class="sub-menu-tabs">
+			<div class="sub-tab active" onclick="showSubMenu('cocktails', this)">Signature Cocktails</div>
+			<div class="sub-tab" onclick="showSubMenu('mocktails', this)">Mocktails</div>
+			<div class="sub-tab" onclick="showSubMenu('beer', this)">Beer</div>
+		</div>
+		<div id="cocktails" class="sub-menu-content active">
+			<img src="background/2.jpg" alt="Appetizers" class="category-image">
+			<div class="menu-items">
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Mumbai Monsoon</div>
+						<div class="price">$23</div>
+						<div class="description">Inspired by the monsoon
+							rains that bring relief to the city of
+							Mumbai, this cocktail combines
+							refreshing mint and zesty nutmeg to
+							bring out the refreshing essence of
+							the air after a rain shower.</div>
+					</div>
+				</div><div class="menu-item2">
+					<div class="details">
+						<div class="name">Jaipur Gem</div>
+						<div class="price">$21</div>
+						<div class="description">Just like the colorful gems and
+							rich history of Jaipur, this cocktail
+							shines with the floral notes of rose
+							syrup and the exotic spice of
+							cardamom, creating a regal and
+							vibrant drink.</div>
+					</div>
+				</div><div class="menu-item2">
+					<div class="details">
+						<div class="name">Kolkata </div>
+						<div class="price">$25</div>
+						<div class="description">Drawing inspiration from the
+							bustling spice markets of Kolkata, this
+							cocktail blends the warmth of chai tea
+							and cinnamon with the rich depth of
+							bourbon, creating a sensory journey
+							through the flavors of the city.</div>
+					</div>
+				</div><div class="menu-item2">
+					<div class="details">
+						<div class="name">Bengaluru Bliss</div>
+						<div class="price">$20</div>
+						<div class="description">This tequila-based elixir, fused
+							with mango puree, lime juice and a
+							turmeric twist, encapsulates the
+							vibrant spirit of the Garden City.
+							Tajin-seasoned rim, a homage to its
+							diverse cultural zest, completes this
+							kaleidoscopic libation.</div>
+					</div>
+				</div><div class="menu-item2">
+					<div class="details">
+						<div class="name">Goa Coastline</div>
+						<div class="price">$22</div>
+						<div class="description">Transport yourself to the sandy
+							beaches of Goa with this tropical delight
+							featuring the smooth flavors of coconut
+							rum, the tropical sweetness of pineapple,
+							and the azure hues of blue curaçao, all
+							topped with a creamy coconut finish.</div>
+					</div>
+				</div><div class="menu-item2">
+					<div class="details">
+						<div class="name">Chennai Local Sarakku</div>
+						<div class="price">$24</div>
+						<div class="description">Reflecting the vibrant and bold
+							flavors of Chennai's TASMAC, this
+							cocktail combines the rich depth of
+							whiskey with the tangy sweetness of
+							tamarind, aromatic curry leaf,
+							and a zesty kick of ginger beer.</div>
+					</div>
+				</div><div class="menu-item2">
+					<div class="details">
+						<div class="name">Hyderabad Royal Saffron</div>
+						<div class="price">$21</div>
+						<div class="description">Inspired by the regal history and
+							rich culinary traditions of Hyderabad,
+							this cocktail combines the luxurious
+							essence of saffron-infused honey with
+							the citrus brightness of orange liqueur
+							and the velvety texture of egg white,
+							creating a drink fit for royalty.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="beer" class="sub-menu-content">
+			<div class="menu-items">
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Cheetah – Lager – India</div>
+						<div class="price">$8</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Cheetah – Dark – India</div>
+						<div class="price">$8</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Cheetah – Mango Flavoured Beer </div>
+						<div class="price">$8</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Asahi – Super Dry – Japan </div>
+						<div class="price">$8</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Grolsch – Premium Pilsner – Dutch</div>
+						<div class="price">$8</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="mocktails" class="sub-menu-content">
+			<img src="menuImages/mocktails.jpg" alt="Appetizers" class="category-image">
+			<div class="menu-items">
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Virgin Mojito</div>
+						<div class="price">$5</div>
+						<div class="description">Refreshing mint and lime mocktail.</div>
+					</div>
+				</div>
+				<div class="menu-item2">
+					<div class="details">
+						<div class="name">Strawberry Lemonade</div>
+						<div class="price">$6</div>
+						<div class="description">Sweet and tangy strawberry lemonade.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	
-							</div>
+	<!-- Happy Hour Section -->
+	<div id="happyhour" class="menu-content">
+		<div class="sub-menu-tabs">
+			<div class="sub-tab active" onclick="showSubMenu('cocktails', this)">Women's Day Special Coming Soon!
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+
+		
+			
 				
 		
 			<script type="text/javascript">
@@ -866,5 +1526,24 @@ window.addEventListener('load', function() {
 });
 
 </script>
-	  
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		function showMenu(menuId, element) {
+			document.querySelectorAll('.menu-content').forEach(menu => menu.classList.remove('active'));
+			document.getElementById(menuId).classList.add('active');
+			document.querySelectorAll('.menu-tabs .tab').forEach(tab => tab.classList.remove('active'));
+			element.classList.add('active');
+		}
+
+		function showSubMenu(subMenuId, element) {
+			document.querySelectorAll('.sub-menu-content').forEach(subMenu => subMenu.classList.remove('active'));
+			document.getElementById(subMenuId).classList.add('active');
+			document.querySelectorAll('.sub-menu-tabs .sub-tab').forEach(tab => tab.classList.remove('active'));
+			element.classList.add('active');
+		}
+
+		window.showMenu = showMenu;
+		window.showSubMenu = showSubMenu;
+	});
+</script>
 </body></html>
